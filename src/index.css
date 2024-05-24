@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+svg {
+  width: 100%;
+  height: 100%;
+  font-size: 50px;
+}
+
+svg > rect {
+  transform-origin: center;
+  transition: 0.5s;
+}

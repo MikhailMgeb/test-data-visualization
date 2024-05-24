@@ -1,0 +1,85 @@
+.StackedBarChart {
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+    gap: 50px;
+    align-items: center;
+    font-weight: 700;
+    color: #fff;
+    font-size: 14px;
+}
+
+.StackedBarChart-Chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: 50px;
+    max-width: 500px;
+}
+
+.StackedBarChart-Title {
+    margin: 0;
+}
+
+.StackedBarChart-Columns {
+    margin: 0;
+    width: 80px;
+}
+
+.StackedBarChart-Column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.StackedBarChart-Column_front {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #4ab6e8;
+    text-align: center;
+}
+
+.StackedBarChart-Column_back {
+    background-color: #aa6fac;
+    text-align: center;
+}
+
+.StackedBarChart-Column_db {
+    background-color: #e85498;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+}
+
+.StackedBarChart-ColumnTitle {
+    color: #898290;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.StackedBarChart-Image {
+    height: auto;
+}
+
+.StackedBarChart-Icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.StackedBarChart-NormativeValue {
+    display: inline-block;
+    padding: 6px;
+    border-radius: 5px;
+    background-color: white;
+    position: absolute;
+    top: 45%;
+    color: #898290;
+}
+
+.StackedBarChart-Footer {
+    display: flex;
+    color: #898290;
+    gap: 25px;
+}
