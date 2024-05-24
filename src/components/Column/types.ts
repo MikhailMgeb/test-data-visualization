@@ -14,11 +14,11 @@ export type DataResponse = {
 
 export type CategoryKey = "dev" | "test" | "prod";
 
-export type ResultChart = { category: 'dev' | 'test' | 'prod', front: number, back: number, db: number};
+export type ResultChart = { category: CategoryKey, front: number, back: number, db: number };
 
 export type TransformedItem = {
     category: string;
     front: number;
     back: number;
     db: number;
-}
+};

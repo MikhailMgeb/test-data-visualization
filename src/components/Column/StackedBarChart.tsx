@@ -6,6 +6,7 @@ import type { ResultChart, DataResponse } from './types';
 import { ReactComponent as LogoNormative } from "../../assets/image/Subtract.svg";
 
 import './StackedBarChart.css';
+import { Footer } from '../Footer/Footer';
 
 type StackedBarChartProps = {
     url: string;
@@ -59,7 +60,7 @@ const StackedBarChart: FC<StackedBarChartProps> = ({ url }) => {
                         >
                             <span>{block.db}</span>
                         </div>
-                        <div style={{ textAlign: 'center', marginTop: '10px' }}>{block.category}</div>
+                        <div className={cnStackedBarChart('ColumnTitle')}>{block.category}</div>
                     </div>
                 ))}
                 <div className={cnStackedBarChart('Columns')}
@@ -69,12 +70,13 @@ const StackedBarChart: FC<StackedBarChartProps> = ({ url }) => {
                             height: getHeight(normative, maxHeight),
                         }}
                     >
-                    <LogoNormative height={getHeight(normative, maxHeight)}/>
+                        <LogoNormative className={cnStackedBarChart('Icon')} />
+                        <span className={cnStackedBarChart('NormativeValue')}>{normative || null}</span>
                     </div>
-                    <div style={{ textAlign: 'center', marginTop: '10px' }}>normative</div>
+                    <div className={cnStackedBarChart('ColumnTitle')} >normative</div>
                 </div>
-
             </div>
+            <Footer />
         </div>
     );
 };

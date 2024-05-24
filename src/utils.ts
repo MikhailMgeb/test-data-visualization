@@ -24,5 +24,10 @@ export function getMaxHeight(data: DataResponse) {
 }
 
 export function getHeight(value: number, max: number): string {
+
+    if (Math.floor((value / max) * 300) === 0) {
+        return `20px`
+    }
+    
     return `${Math.floor((value / max) * 300)}px`
 }
