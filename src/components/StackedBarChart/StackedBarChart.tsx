@@ -63,6 +63,7 @@ const StackedBarChart: FC<StackedBarChartProps> = ({ url }) => {
                         <div className={cnStackedBarChart('ColumnTitle')}>{block.category}</div>
                     </div>
                 ))}
+                
                 <div className={cnStackedBarChart('Columns')}
                 >
                     <div className={cnStackedBarChart('Column')}

@@ -1,4 +1,4 @@
-import { CategoryKey, DataResponse, ResultChart } from './components/Column/types';
+import { CategoryKey, DataResponse, ResultChart } from './components/StackedBarChart/types';
 
 export const transformData = (data: DataResponse): ResultChart[] => {
     const transformedData: ResultChart[] = [];
