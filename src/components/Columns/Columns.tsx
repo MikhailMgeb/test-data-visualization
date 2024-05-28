@@ -1,9 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
 import { cnColumns } from './Columns.classname';
-import { getHeight } from '../../utils';
+import { getArrowHeight, getHeight } from '../../utils';
+import { VerticalArrow } from '../Arrow/Arrow';
 
 import './Columns.css';
+import { HorizontalLine } from '../Arrow/HorizontalArrow';
 
 type ColumnsProps = {
     dataColumn: {
@@ -15,34 +17,29 @@ type ColumnsProps = {
     relativeHeight: number
 }
 
-const getArrowHeight = (total: number) => {
-    console.log(total)
-    return (200 - total);
-}
-
 const Columns: FC<ColumnsProps> = ({ dataColumn, relativeHeight }) => {
+    const [arrowHeight, setArrowHeight] = useState(0);
+    const arrowRef = useRef<HTMLDivElement>(null);
+
     const { front, back, db, category } = dataColumn;
-    const totalHeightColumn = front + back + db;
+
+    useEffect(() => {
+        if (arrowRef.current) {
+            const height = arrowRef.current.getBoundingClientRect().height;
+            console.log(height)
+            setArrowHeight(getArrowHeight(height));
+        }
+    }, [arrowRef]);
 
     return (
-        <aside className={cnColumns('Columns')}>
+        <div ref={arrowRef} className={cnColumns('Columns')}>
             <div className={cnColumns('Column', { arrow: true })}
                 style={{
-                    height: getArrowHeight(totalHeightColumn),
+                    height: arrowHeight,
                 }}
             >
-                <svg height="210" width="500">
-                    <line
-                        x1="0"
-                        y1="0"
-                        x2="200"
-                        y2="200"
-                        style={{
-                            stroke: 'rgb(255, 0, 0)',
-                            strokeWidth: 2
-                        }}
-                    />
-                </svg> </div>
+                <VerticalArrow />
+            </div>
             <div className={cnColumns('Column', { front: true })}
                 style={{
                     height: getHeight(front, relativeHeight),
@@ -65,7 +62,7 @@ const Columns: FC<ColumnsProps> = ({ dataColumn, relativeHeight }) => {
                 <span>{db}</span>
             </div>
             <div className={cnColumns('ColumnTitle')}>{category}</div>
-        </aside>
+        </div>
     );
 };
 
