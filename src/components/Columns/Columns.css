@@ -1,0 +1,37 @@
+.Columns-Columns {
+    margin: 0;
+    width: 80px;
+}
+
+.Columns-Column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.Columns-Column_front {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #4ab6e8;
+    text-align: center;
+}
+
+.Columns-Column_back {
+    background-color: #aa6fac;
+    text-align: center;
+}
+
+.Columns-Column_db {
+    background-color: #e85498;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+}
+
+.Columns-ColumnTitle {
+    color: #898290;
+    text-align: center;
+    margin-top: 10px;
+}

@@ -1,12 +1,14 @@
 import React, { FC, useEffect, useState } from 'react';
 
 import { cnStackedBarChart } from './StackedBarChart.classname';
-import { getHeight, getMaxHeight, transformData } from '../../utils';
-import type { ResultChart, DataResponse } from './types';
+import { getHeight, getRelativeHeight, transformData } from '../../utils';
 import { ReactComponent as LogoNormative } from "../../assets/image/Subtract.svg";
+import { Footer } from '../Footer/Footer';
+import { Columns } from '../Columns/Columns';
+
+import type { ResultChart, DataResponse } from '../../types';
 
 import './StackedBarChart.css';
-import { Footer } from '../Footer/Footer';
 
 type StackedBarChartProps = {
     url: string;
@@ -31,44 +33,20 @@ const StackedBarChart: FC<StackedBarChartProps> = ({ url }) => {
         return (<div>Идет загрузка данных....</div>)
     }
 
-    const maxHeight = getMaxHeight(dataChart);
+    const relativeHeight = getRelativeHeight(dataChart);
 
     return (
         <div className={cnStackedBarChart()}>
             <h2 className={cnStackedBarChart('Title')}>{chartTitle}</h2>
-            <div className={cnStackedBarChart('Chart')} style={{}}>
+            <div className={cnStackedBarChart('Chart')}>
                 {dataChart.map((block, index) => (
-                    <div className={cnStackedBarChart('Columns')} key={index} style={{}}>
-                        <div className={cnStackedBarChart('Column', { front: true })}
-                            style={{
-                                height: getHeight(block.front, maxHeight),
-                            }}
-                        >
-                            <span>{block.front}</span>
-                        </div>
-                        <div className={cnStackedBarChart('Column', { back: true })}
-                            style={{
-                                height: getHeight(block.back, maxHeight),
-                            }}
-                        >
-                            <span>{block.back}</span>
-                        </div>
-                        <div className={cnStackedBarChart('Column', { db: true })}
-                            style={{
-                                height: getHeight(block.db, maxHeight),
-                            }}
-                        >
-                            <span>{block.db}</span>
-                        </div>
-                        <div className={cnStackedBarChart('ColumnTitle')}>{block.category}</div>
-                    </div>
+                    <Columns key={index} dataColumn={block} relativeHeight={relativeHeight} />
                 ))}
-                
                 <div className={cnStackedBarChart('Columns')}
                 >
                     <div className={cnStackedBarChart('Column')}
                         style={{
-                            height: getHeight(normative, maxHeight),
+                            height: getHeight(normative, relativeHeight),
                         }}
                     >
                         <LogoNormative className={cnStackedBarChart('Icon')} />

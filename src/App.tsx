@@ -10,14 +10,14 @@ const App = () => {
     <main className={cnApp()}>
       <StackedBarChart url="https://rcslabs.ru/ttrp1.json" />
       <hr />
-      <StackedBarChart url="https://rcslabs.ru/ttrp2.json" />
+      {/* <StackedBarChart url="https://rcslabs.ru/ttrp2.json" />
       <hr />
       <StackedBarChart url="https://rcslabs.ru/ttrp3.json" />
       <hr />
       <StackedBarChart url="https://rcslabs.ru/ttrp4.json" />
       <hr />
       <StackedBarChart url="https://rcslabs.ru/ttrp5.json" />
-      <hr />
+      <hr /> */}
     </main>
   );
 }
