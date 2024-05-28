@@ -1,5 +1,6 @@
 .StackedBarChart {
     display: flex;
+    position: relative;
     flex-direction: column;
     font-family: "Roboto", sans-serif;
     gap: 50px;
@@ -7,6 +8,7 @@
     font-weight: 700;
     color: #fff;
     font-size: 14px;
+
 }
 
 .StackedBarChart-Chart {
@@ -58,6 +60,12 @@
     top: 45%;
     color: #898290;
 }
+
+.StackedBarChart-Column_normative {
+    background: repeating-linear-gradient(-45deg, #ffffff, #ffffff 8px, #4ab6e8 8px, #4ab6e8 20px);
+    border-radius: 10px;
+}
+
 
 .StackedBarChart-Footer {
     display: flex;

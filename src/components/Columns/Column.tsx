@@ -1,14 +1,13 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 
-import { cnColumns } from './Columns.classname';
+import { cnColumn } from './Column.classname';
 import { getArrowHeight, getHeight } from '../../utils';
-import { VerticalArrow } from '../VerticalArrow/VerticalArrow';
-import { HorizontalLine } from '../HorizontalArrow/HorizontalArrow';
 
-import './Columns.css';
+import './Column.css';
+import { Arrow } from '../Arrow/Arrow';
 
 
-type ColumnsProps = {
+type ColumnProps = {
     dataColumn: {
         front: number;
         back: number;
@@ -18,7 +17,7 @@ type ColumnsProps = {
     relativeHeight: number
 }
 
-const Columns: FC<ColumnsProps> = ({ dataColumn, relativeHeight }) => {
+const Column: FC<ColumnProps> = ({ dataColumn, relativeHeight }) => {
     const [arrowHeight, setArrowHeight] = useState(0);
     const arrowRef = useRef<HTMLDivElement>(null);
 
@@ -33,38 +32,32 @@ const Columns: FC<ColumnsProps> = ({ dataColumn, relativeHeight }) => {
     }, [arrowRef]);
 
     return (
-        <div ref={arrowRef} className={cnColumns('Columns')}>
-            <div className={cnColumns('Column', { arrow: true })}
-                style={{
-                    height: arrowHeight,
-                }}
-            >
-                <VerticalArrow />
-            </div>
-            <div className={cnColumns('Column', { front: true })}
+        <div ref={arrowRef} className={cnColumn()}>
+            <div className={cnColumn('Block', { front: true })}
                 style={{
                     height: getHeight(front, relativeHeight),
                 }}
             >
                 <span>{front}</span>
             </div>
-            <div className={cnColumns('Column', { back: true })}
+            <div className={cnColumn('Block', { back: true })}
                 style={{
                     height: getHeight(back, relativeHeight),
                 }}
             >
                 <span>{back}</span>
             </div>
-            <div className={cnColumns('Column', { db: true })}
+
+            <div className={cnColumn('Block', { db: true })}
                 style={{
                     height: getHeight(db, relativeHeight),
                 }}
             >
                 <span>{db}</span>
             </div>
-            <div className={cnColumns('ColumnTitle')}>{category}</div>
+            <div className={cnColumn('BlockTitle')}>{category}</div>
         </div>
     );
 };
 
-export { Columns };
+export { Column };

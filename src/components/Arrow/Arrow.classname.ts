@@ -1,3 +1,3 @@
 import { cn } from '@bem-react/classname';
 
-export const cnColumns = cn('Columns');
+export const cnArrow = cn('Arrow');

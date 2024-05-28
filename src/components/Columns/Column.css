@@ -1,9 +1,9 @@
-.Columns-Columns {
+.Columns {
     margin: 0;
     width: 80px;
 }
 
-.Columns-Column {
+.Columns-Block {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,26 +11,26 @@
 }
 
 
-.Columns-Column_front {
+.Columns-Block_front {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: #4ab6e8;
     text-align: center;
 }
 
-.Columns-Column_back {
+.Columns-Block_back {
     background-color: #aa6fac;
     text-align: center;
 }
 
-.Columns-Column_db {
+.Columns-Block_db {
     background-color: #e85498;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     text-align: center;
 }
 
-.Columns-ColumnTitle {
+.Columns-BlockTitle {
     color: #898290;
     text-align: center;
     margin-top: 10px;
