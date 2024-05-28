@@ -1,4 +1,4 @@
-import { CategoryKey, DataResponse, ResultChart } from './components/StackedBarChart/types';
+import { CategoryKey, DataResponse, ResultChart } from './types';
 
 export const transformData = (data: DataResponse): ResultChart[] => {
     const transformedData: ResultChart[] = [];
@@ -19,7 +19,7 @@ export const transformData = (data: DataResponse): ResultChart[] => {
     return transformedData;
 };
 
-export function getMaxHeight(data: DataResponse) {
+export function getRelativeHeight(data: DataResponse) {
     return Math.max(...data.map((block: ResultChart) => block.front + block.back + block.db))
 }
 
@@ -28,6 +28,6 @@ export function getHeight(value: number, max: number): string {
     if (Math.floor((value / max) * 300) === 0) {
         return `20px`
     }
-    
+
     return `${Math.floor((value / max) * 300)}px`
 }
