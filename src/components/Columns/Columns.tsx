@@ -2,10 +2,11 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 
 import { cnColumns } from './Columns.classname';
 import { getArrowHeight, getHeight } from '../../utils';
-import { VerticalArrow } from '../Arrow/Arrow';
+import { VerticalArrow } from '../VerticalArrow/VerticalArrow';
+import { HorizontalLine } from '../HorizontalArrow/HorizontalArrow';
 
 import './Columns.css';
-import { HorizontalLine } from '../Arrow/HorizontalArrow';
+
 
 type ColumnsProps = {
     dataColumn: {
