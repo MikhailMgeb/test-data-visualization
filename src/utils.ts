@@ -31,3 +31,8 @@ export function getHeight(value: number, max: number): string {
 
     return `${Math.floor((value / max) * 300)}px`
 }
+
+export const getArrowHeight = (total: number) => {
+    return (332.8 - total);
+}
+
